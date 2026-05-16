@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-bg-alt: rgba(249, 250, 251, 0.9);
+  --icon-bg: rgba(15, 23, 42, 0.06);
+}
+
+.dark {
+  --background: #0A0E1A;
+  --foreground: #F9FAFB;
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --card-bg-alt: rgba(15, 23, 42, 0.5);
+  --icon-bg: rgba(255, 255, 255, 0.04);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0E1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #F59E0B;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D97706;
+}
+
+::selection {
+  background: rgba(245, 158, 11, 0.25);
+  color: #F9FAFB;
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent;
+  }
+  .text-gradient-green {
+    @apply bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent;
+  }
+  .glass-card {
+    @apply bg-slate-900/60 backdrop-blur-sm border border-slate-800/50;
+  }
+}
+
+.surface-card {
+  background: var(--card-bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+.dark .surface-card {
+  box-shadow: none;
+}
+
+.surface-card-alt {
+  background: var(--card-bg-alt);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.dark .surface-card-alt {
+  box-shadow: none;
+}
+
+.icon-surface {
+  background: var(--icon-bg);
+}
+
+.hero-bg {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(245, 158, 11, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(16, 185, 129, 0.07) 0%, transparent 45%),
+    #F8FAFC;
+}
+.dark .hero-bg {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(245, 158, 11, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(16, 185, 129, 0.1) 0%, transparent 45%),
+    #0A0E1A;
+}
+
+.quote-surface {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(255, 255, 255, 0.9) 100%);
+}
+.dark .quote-surface {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.03) 100%);
+}
+
+.cta-inner-surface {
+  background: radial-gradient(ellipse at 50% 0%, rgba(245, 158, 11, 0.10) 0%, rgba(241, 245, 249, 0.9) 60%);
+}
+.dark .cta-inner-surface {
+  background: radial-gradient(ellipse at 50% 0%, rgba(245, 158, 11, 0.15) 0%, rgba(15, 23, 42, 0.8) 60%);
+}
+
+.footer-surface {
+  background: #EEF2F7;
+}
+.dark .footer-surface {
+  background: rgba(10, 14, 26, 0.98);
+}

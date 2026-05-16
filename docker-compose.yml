@@ -1,0 +1,7 @@
+services:
+  qoshe:
+    build: .
+    container_name: qoshe-consulting
+    ports:
+      - "80:80"
+    restart: unless-stopped

@@ -25,4 +25,7 @@ if [ -f "deploy/setup-nginx-host.sh" ]; then
   bash deploy/setup-nginx-host.sh
 fi
 
-echo "=== Deployed. Container on :8080 | Public via nginx at http://qosheconsulting.com ==="
+# Reload nginx (picks up any config or cert changes)
+sudo nginx -t && sudo systemctl reload nginx
+
+echo "=== Deployed. Container on :8080 | Public via nginx at https://qosheconsulting.com ==="

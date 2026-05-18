@@ -29,28 +29,35 @@ npm run build
 
 Day / Night toggle supported via CSS custom properties + Tailwind `darkMode: 'class'`.
 
-## Deploy to EC2 (Docker)
+## Deploy to EC2 (Docker + nginx reverse proxy + HTTPS)
 
-1. **Create a GitHub repo** and push this code:
+> Architecture: host nginx (port 80/443) → Docker container (port 8080)
 
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/qoshe-consulting.git
-   git push -u origin main
-   ```
-
-2. **SSH to your EC2 instance** and run:
+1. **SSH to your EC2 instance** and run:
 
    ```bash
-   # Setup (once)
-   curl -sL https://raw.githubusercontent.com/YOUR_USERNAME/qoshe-consulting/main/deploy/setup-ec2.sh | bash
+   # 1. Clone
+   git clone https://github.com/zatouu/qoshe-consulting.git
+   cd qoshe-consulting
 
-   # Deploy (after each push)
-   curl -sL https://raw.githubusercontent.com/YOUR_USERNAME/qoshe-consulting/main/deploy/deploy.sh | bash
+   # 2. Setup nginx host config (once)
+   bash deploy/setup-nginx-host.sh
+
+   # 3. Setup HTTPS with Certbot (once)
+   bash deploy/setup-certbot.sh your-email@example.com
+
+   # 4. Start container
+   docker-compose up --build -d
    ```
 
-   Or clone manually and run `docker-compose up --build -d`.
+2. **Redeploy** after each push:
 
-3. **Open** `http://YOUR_EC2_IP`.
+   ```bash
+   cd ~/qoshe-consulting
+   bash deploy/deploy.sh
+   ```
+
+3. **Open** `https://qosheconsulting.com`.
 
 ## License
 

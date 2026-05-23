@@ -9,8 +9,11 @@ const navLinks = [
   { label: "Accueil", href: "#accueil" },
   { label: "À propos", href: "#apropos" },
   { label: "Prestations", href: "#prestations" },
+  { label: "Méthode", href: "#methode" },
   { label: "Solutions", href: "#solutions" },
+  { label: "Cas", href: "#references" },
   { label: "Tarifs", href: "#tarifs" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -39,7 +42,7 @@ export default function Navbar() {
             <QosheLogo iconSize={38} />
           </a>
 
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden lg:flex items-center gap-5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -51,7 +54,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={toggle}
               aria-label="Toggle theme"
@@ -67,7 +70,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={toggle}
               aria-label="Toggle theme"
@@ -86,7 +89,7 @@ export default function Navbar() {
         </div>
 
         {isOpen && (
-          <div className="md:hidden bg-white dark:bg-[#0F172A] border-t border-slate-200 dark:border-slate-800 pb-4">
+          <div className="lg:hidden bg-white dark:bg-[#0F172A] border-t border-slate-200 dark:border-slate-800 pb-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}

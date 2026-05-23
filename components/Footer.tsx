@@ -5,8 +5,12 @@ const navLinks = [
   { label: "Accueil", href: "#accueil" },
   { label: "À propos", href: "#apropos" },
   { label: "Prestations", href: "#prestations" },
+  { label: "Méthode", href: "#methode" },
   { label: "Solutions innovantes", href: "#solutions" },
+  { label: "Cas d'usage", href: "#references" },
+  { label: "Ressources", href: "#ressources" },
   { label: "Tarifs", href: "#tarifs" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -43,7 +47,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-slate-500 hover:text-amber-400 text-sm transition-colors duration-200"
+                    className="text-slate-500 dark:text-slate-500 hover:text-amber-500 dark:hover:text-amber-400 text-sm transition-colors duration-200"
                   >
                     {link.label}
                   </a>
@@ -59,7 +63,7 @@ export default function Footer() {
                 <li key={s}>
                   <a
                     href="#prestations"
-                    className="text-slate-500 hover:text-amber-400 text-sm transition-colors duration-200"
+                    className="text-slate-500 dark:text-slate-500 hover:text-amber-500 dark:hover:text-amber-400 text-sm transition-colors duration-200"
                   >
                     {s}
                   </a>

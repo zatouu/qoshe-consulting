@@ -1,5 +1,6 @@
 services:
   qoshe:
+    image: ghcr.io/zatouu/qoshe-consulting:latest
     build: .
     container_name: qoshe-consulting
     ports:

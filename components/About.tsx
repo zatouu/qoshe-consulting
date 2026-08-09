@@ -73,10 +73,12 @@ export default function About() {
 
             <div className="grid grid-cols-2 gap-3">
               {[
-                "BTP & Construction",
+                "BTP & Travaux publics",
+                "Industrie",
                 "Hôtellerie & Tourisme",
                 "Agroalimentaire",
-                "Industrie & Ferroviaire",
+                "Ferroviaire",
+                "Services",
               ].map((sector) => (
                 <div
                   key={sector}

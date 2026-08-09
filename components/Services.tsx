@@ -12,11 +12,13 @@ const modules = [
     description:
       "Document Unique, PPSPS, Coordination SPS, permis de travail, audits sécurité chantier et investigation accidents.",
     items: [
-      "Document Unique (DU)",
-      "Plan de Prévention (PPSPS)",
-      "Coordination SPS OP1/OP2/OP3",
-      "Analyse des accidents & quasi-accidents",
-      "Permis de travail (hauteur, confiné, chaud)",
+      "Document Unique (DU) par poste et par chantier",
+      "Rédaction PPSPS, PGC et DIUO",
+      "Coordination SPS OP1 / OP2 / OP3",
+      "Mise à disposition d'agent(s) HSE terrain",
+      "Audit sécurité chantier (grille personnalisée)",
+      "Analyse des accidents et quasi-accidents",
+      "Permis de travail (hauteur, confiné, chaud, électrique)",
     ],
   },
   {
@@ -69,6 +71,7 @@ const modules = [
       "Habilitations électriques (B0-B2 / BC-BR)",
       "Travail en hauteur & EPI antichute",
       "Conduite d'engins (appui CACES)",
+      "Formations référents QHSE",
       "Sauvetage secourisme (SST)",
     ],
   },

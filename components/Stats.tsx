@@ -13,9 +13,9 @@ const stats = [
   },
   {
     icon: Globe2,
-    value: "4",
+    value: "3+",
     label: "Secteurs couverts",
-    desc: "BTP · Industrie · Hôtellerie · Agroalimentaire",
+    desc: "BTP · Industrie · Services (gros œuvre, second œuvre, aménagement, TP)",
     color: "text-emerald-400",
     bg: "bg-emerald-400/8",
     border: "border-emerald-400/20",

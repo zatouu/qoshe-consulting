@@ -42,8 +42,8 @@ export default function Hero() {
 
         <p className="text-slate-500 dark:text-slate-500 text-base max-w-xl mx-auto mb-10 leading-relaxed">
           Qualité · Orientation · Sécurité · Hygiène · Environnement — Nous
-          accompagnons les entreprises BTP, hôtellerie, industrie et
-          agroalimentaire vers l&apos;excellence opérationnelle.
+          accompagnons les entreprises BTP, industrie, services, hôtellerie et
+          agroalimentaire au Sénégal vers l&apos;excellence opérationnelle.
         </p>
 
         <div className="flex flex-wrap justify-center gap-5 mb-12">

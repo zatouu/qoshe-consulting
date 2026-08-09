@@ -3,7 +3,8 @@ import { Check, Star } from "lucide-react";
 const plans = [
   {
     name: "Essentiel",
-    price: "500 000",
+    price: "300 000",
+    prefix: "À partir de",
     currency: "FCFA",
     period: "/mois",
     description: "Pour les TPE et PME en démarrage QHSE",
@@ -20,12 +21,13 @@ const plans = [
       "1 visite sécurité chantier / mois",
       "Support téléphonique et rédactionnel",
       "Rapport mensuel de suivi",
-      "Mise à disposition agent HSE junior 1j/2",
+      "Mise à disposition agent HSE junior 1 jour / 2",
     ],
   },
   {
     name: "Performance",
     price: "1 500 000",
+    prefix: "À partir de",
     currency: "FCFA",
     period: "/mois",
     description: "Pour les PME et ETI en structuration",
@@ -61,7 +63,7 @@ const plans = [
       "Tout le pack Performance",
       "Management intégré QSE (3 référentiels)",
       "Audit fournisseurs et sous-traitants",
-      "Formations illimitées (plan annuel)",
+      "Formations illimitées (dans la limite du plan)",
       "Présence récurrente sur le terrain",
       "Intervention due diligence et contentieux",
       "Reporting personnalisé à la direction",
@@ -114,6 +116,11 @@ export default function Pricing() {
                 <p className={`text-xs font-black uppercase tracking-widest ${plan.color} mb-3`}>
                   {plan.name}
                 </p>
+                {plan.prefix && (
+                  <p className="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">
+                    {plan.prefix}
+                  </p>
+                )}
                 <div className="flex items-end gap-1.5 mb-2">
                   {plan.currency ? (
                     <>

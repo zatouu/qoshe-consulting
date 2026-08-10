@@ -77,24 +77,24 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-slate-500 dark:text-slate-500 text-sm">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
-                Sénégal — Dakar &amp; régions
+                712 Nord Foire Azur, Rue 174 — Dakar / Yoff, Sénégal
               </li>
               <li>
                 <a
-                  href="mailto:contact@qoshe-consulting.com"
+                  href="mailto:contact@qosheconsulting.com"
                   className="flex items-center gap-3 text-slate-500 dark:text-slate-500 hover:text-amber-500 dark:hover:text-amber-400 text-sm transition-colors"
                 >
                   <Mail className="w-4 h-4 text-amber-400 shrink-0" />
-                  contact@qoshe-consulting.com
+                  contact@qosheconsulting.com
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+221000000000"
+                  href="tel:+221776339325"
                   className="flex items-center gap-3 text-slate-500 dark:text-slate-500 hover:text-amber-500 dark:hover:text-amber-400 text-sm transition-colors"
                 >
                   <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                  +221 XX XXX XX XX
+                  +221 77 633 93 25 / +221 77 274 25 00
                 </a>
               </li>
             </ul>

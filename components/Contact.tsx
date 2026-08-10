@@ -55,19 +55,19 @@ export default function Contact() {
                 {
                   icon: Mail,
                   label: "Email",
-                  value: "contact@qoshe-consulting.com",
-                  href: "mailto:contact@qoshe-consulting.com",
+                  value: "contact@qosheconsulting.com",
+                  href: "mailto:contact@qosheconsulting.com",
                 },
                 {
                   icon: Phone,
                   label: "Téléphone",
-                  value: "+221 XX XXX XX XX",
-                  href: "tel:+221000000000",
+                  value: "+221 77 633 93 25 / +221 77 274 25 00",
+                  href: "tel:+221776339325",
                 },
                 {
                   icon: MapPin,
-                  label: "Zone d'intervention",
-                  value: "Sénégal — Dakar & régions",
+                  label: "Adresse",
+                  value: "712 Nord Foire Azur, Rue 174 — Dakar / Yoff, Sénégal",
                   href: null,
                 },
               ].map((item) => (

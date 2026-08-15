@@ -17,6 +17,8 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+const auditLink = { label: "Audit", href: "/audit" };
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -63,7 +65,7 @@ export default function Navbar() {
               {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
             <a
-              href="#contact"
+              href="/audit"
               className="bg-amber-400 hover:bg-amber-300 text-[#0A0E1A] font-bold text-sm px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-amber-400/25"
             >
               Audit gratuit
@@ -100,13 +102,20 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="/audit"
+              className="block px-4 py-3 text-amber-500 dark:text-amber-400 font-bold text-sm transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              {auditLink.label}
+            </a>
             <div className="px-4 pt-3">
               <a
-                href="#contact"
+                href="/audit"
                 className="block text-center bg-amber-400 hover:bg-amber-300 text-[#0A0E1A] font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200"
                 onClick={() => setIsOpen(false)}
               >
-                Demander un audit gratuit
+                Faire un audit gratuit
               </a>
             </div>
           </div>

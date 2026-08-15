@@ -61,7 +61,7 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
           <a
-            href="#contact"
+            href="/audit"
             className="group flex items-center gap-2.5 bg-amber-400 hover:bg-amber-300 text-[#0A0E1A] font-black px-8 py-4 rounded-xl transition-all duration-200 hover:shadow-2xl hover:shadow-amber-400/30 text-base"
           >
             Demander un audit gratuit

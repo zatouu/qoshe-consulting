@@ -77,7 +77,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-slate-500 dark:text-slate-500 text-sm">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
-                712 Nord Foire Azur, Rue 174 — Dakar / Yoff, Sénégal
+                12 Nord Foire Azur, Rue 174 — Dakar / Yoff, Sénégal
               </li>
               <li>
                 <a

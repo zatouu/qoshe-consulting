@@ -67,7 +67,7 @@ export default function Contact() {
                 {
                   icon: MapPin,
                   label: "Adresse",
-                  value: "712 Nord Foire Azur, Rue 174 — Dakar / Yoff, Sénégal",
+                  value: "12 Nord Foire Azur, Rue 174 — Dakar / Yoff, Sénégal",
                   href: null,
                 },
               ].map((item) => (

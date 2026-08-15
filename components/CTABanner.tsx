@@ -28,14 +28,14 @@ export default function CTABanner() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="#contact"
+                href="/audit"
                 className="group flex items-center gap-2.5 bg-amber-400 hover:bg-amber-300 text-[#0A0E1A] font-black px-8 py-4 rounded-xl transition-all duration-200 hover:shadow-2xl hover:shadow-amber-400/30 text-base"
               >
                 Demander mon audit gratuit
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
               <a
-                href="tel:+221000000000"
+                href="tel:+221776339325"
                 className="flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-400 font-semibold transition-colors duration-200"
               >
                 <Phone className="w-5 h-5" />

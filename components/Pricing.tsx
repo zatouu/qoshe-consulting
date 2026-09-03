@@ -3,10 +3,10 @@ import { Check, Star } from "lucide-react";
 const plans = [
   {
     name: "Essentiel",
-    price: "300 000",
-    prefix: "À partir de",
-    currency: "FCFA",
-    period: "/mois",
+    price: "Sur devis",
+    prefix: "",
+    currency: "",
+    period: "",
     description: "Pour les TPE et PME en démarrage QHSE",
     commitment: "Engagement 6 mois minimum",
     popular: false,
@@ -26,10 +26,10 @@ const plans = [
   },
   {
     name: "Performance",
-    price: "1 500 000",
-    prefix: "À partir de",
-    currency: "FCFA",
-    period: "/mois",
+    price: "Sur devis",
+    prefix: "",
+    currency: "",
+    period: "",
     description: "Pour les PME et ETI en structuration",
     commitment: "Engagement 12 mois",
     popular: true,
@@ -86,14 +86,10 @@ export default function Pricing() {
             </span>
           </h2>
           <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto">
-            Trois formules évolutives. Chaque offre peut être personnalisée après
-            un diagnostic préalable gratuit.
+            Trois formules évolutives. Tarifs sur devis après diagnostic préalable gratuit.
           </p>
         </div>
 
-        <p className="text-center text-slate-400 dark:text-slate-600 text-sm mb-12">
-          Les tarifs sont indicatifs — devis sur mesure après diagnostic
-        </p>
 
         <div className="grid md:grid-cols-3 gap-6 items-start">
           {plans.map((plan) => (
@@ -151,7 +147,7 @@ export default function Pricing() {
                   href="#contact"
                   className={`block text-center font-bold px-6 py-3.5 rounded-xl transition-all duration-200 hover:shadow-lg text-sm ${plan.btnClass}`}
                 >
-                  Commencer
+                  Demander un devis
                 </a>
                 <p className="text-center text-xs text-slate-400 dark:text-slate-600">{plan.commitment}</p>
               </div>

@@ -62,13 +62,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Copy compose file to EC2
+      - name: Copy files to EC2
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "docker-compose.yml"
+          source: "docker-compose.yml,deploy/nginx-qoshe.conf,deploy/setup-nginx-https.sh"
           target: "~/qoshe-consulting"
 
       - name: Deploy on EC2 via SSH
@@ -128,5 +128,6 @@ jobs:
             # Nettoyage des anciennes images
             sudo docker image prune -f
 
-            # Rechargement nginx (reverse proxy host)
-            sudo nginx -t && sudo systemctl reload nginx || true
+            # Configuration Nginx reverse proxy + HTTPS
+            chmod +x $APP_DIR/deploy/setup-nginx-https.sh
+            bash $APP_DIR/deploy/setup-nginx-https.sh || echo "WARN: Setup Nginx/HTTPS a échoué (peut être déjà configuré)"

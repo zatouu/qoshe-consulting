@@ -49,6 +49,7 @@ jobs:
         with:
           context: .
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
@@ -92,7 +93,9 @@ jobs:
             if ! docker compose version >/dev/null 2>&1; then
               DOCKER_CONFIG=${HOME}/.docker
               mkdir -p $DOCKER_CONFIG/cli-plugins
-              curl -SL https://github.com/docker/compose/releases/download/v2.30.3/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+              ARCH=$(uname -m)
+              if [ "$ARCH" = "aarch64" ]; then COMPOSE_ARCH="aarch64"; else COMPOSE_ARCH="x86_64"; fi
+              curl -SL "https://github.com/docker/compose/releases/download/v2.30.3/docker-compose-linux-${COMPOSE_ARCH}" -o $DOCKER_CONFIG/cli-plugins/docker-compose
               chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
             fi
 

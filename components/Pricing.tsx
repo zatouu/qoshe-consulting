@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Check, Star } from "lucide-react";
 
 const plans = [
@@ -143,12 +144,12 @@ export default function Pricing() {
               </ul>
 
               <div className="space-y-2.5">
-                <a
-                  href="#contact"
+                <Link
+                  href="/#contact"
                   className={`block text-center font-bold px-6 py-3.5 rounded-xl transition-all duration-200 hover:shadow-lg text-sm ${plan.btnClass}`}
                 >
                   Demander un devis
-                </a>
+                </Link>
                 <p className="text-center text-xs text-slate-400 dark:text-slate-600">{plan.commitment}</p>
               </div>
             </div>

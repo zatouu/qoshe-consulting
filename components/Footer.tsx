@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 import QosheLogo from "@/components/QosheLogo";
+import { modules } from "@/data/modules";
 
 const navLinks = [
   { label: "Accueil", href: "#accueil" },
@@ -14,14 +16,7 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-const services = [
-  "Sécurité & Santé au Travail",
-  "Management Qualité",
-  "Environnement",
-  "Formation & Compétences",
-  "Diagnostic & Audit",
-  "Accompagnement Certification",
-];
+const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   return (
@@ -29,9 +24,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div className="lg:col-span-1">
-            <a href="#accueil" className="inline-block mb-5 w-fit">
+            <Link href="/#accueil" className="inline-block mb-5 w-fit">
               <QosheLogo iconSize={44} showBar />
-            </a>
+            </Link>
             <p className="text-slate-500 dark:text-slate-500 text-sm leading-relaxed mb-5">
               Cabinet QHSE spécialisé au Sénégal. Qualité, Orientation, Sécurité, Hygiène, Environnement.
             </p>
@@ -45,12 +40,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
+                  <Link
+                    href={`/${link.href}`}
                     className="text-slate-500 dark:text-slate-500 hover:text-amber-500 dark:hover:text-amber-400 text-sm transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -59,14 +54,14 @@ export default function Footer() {
           <div>
             <p className="text-slate-900 dark:text-white font-bold text-sm uppercase tracking-wider mb-5">Nos modules</p>
             <ul className="space-y-3">
-              {services.map((s) => (
-                <li key={s}>
-                  <a
-                    href="#prestations"
+              {modules.map((mod) => (
+                <li key={mod.id}>
+                  <Link
+                    href={`/modules/${mod.id}`}
                     className="text-slate-500 dark:text-slate-500 hover:text-amber-500 dark:hover:text-amber-400 text-sm transition-colors duration-200"
                   >
-                    {s}
-                  </a>
+                    {mod.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -100,25 +95,27 @@ export default function Footer() {
             </ul>
 
             <div className="flex items-center gap-3 mt-6">
-              <a
-                href="#"
-                className="w-9 h-9 bg-slate-200/60 dark:bg-slate-800/60 border border-slate-300/50 dark:border-slate-700/50 rounded-lg flex items-center justify-center hover:border-amber-400/40 hover:text-amber-500 dark:hover:text-amber-400 text-slate-400 dark:text-slate-500 transition-all"
+              <button
+                aria-label="LinkedIn (bientôt disponible)"
+                disabled
+                className="w-9 h-9 bg-slate-200/60 dark:bg-slate-800/60 border border-slate-300/50 dark:border-slate-700/50 rounded-lg flex items-center justify-center text-slate-400 dark:text-slate-500 cursor-not-allowed"
               >
                 <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 bg-slate-200/60 dark:bg-slate-800/60 border border-slate-300/50 dark:border-slate-700/50 rounded-lg flex items-center justify-center hover:border-amber-400/40 hover:text-amber-500 dark:hover:text-amber-400 text-slate-400 dark:text-slate-500 transition-all"
+              </button>
+              <button
+                aria-label="Twitter (bientôt disponible)"
+                disabled
+                className="w-9 h-9 bg-slate-200/60 dark:bg-slate-800/60 border border-slate-300/50 dark:border-slate-700/50 rounded-lg flex items-center justify-center text-slate-400 dark:text-slate-500 cursor-not-allowed"
               >
                 <Twitter className="w-4 h-4" />
-              </a>
+              </button>
             </div>
           </div>
         </div>
 
         <div className="border-t border-slate-200 dark:border-slate-800/50 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-400 dark:text-slate-600 text-xs">
-            &copy; {new Date().getFullYear()} QOSHE Consulting. Tous droits réservés.
+            &copy; {currentYear} QOSHE Consulting. Tous droits réservés.
           </p>
           <div className="flex items-center gap-2">
             {["ISO 9001", "ISO 14001", "ISO 45001"].map((iso, i) => (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import Link from "next/link";
 import {
   CheckCircle,
   XCircle,
@@ -305,13 +306,13 @@ export default function AuditResults({ config, answers, onBack }: AuditResultsPr
             <RefreshCw className="w-4 h-4" />
             Refaire l'audit
           </button>
-          <a
+          <Link
             href="/#contact"
             className="flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-[#0A0E1A] font-bold text-sm transition-all hover:shadow-lg"
           >
             Demander un devis
             <ArrowLeft className="w-4 h-4 rotate-180" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

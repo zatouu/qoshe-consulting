@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { UtensilsCrossed, HardHat, ShieldCheck, ArrowRight, FileCheck, Clock, BarChart3 } from "lucide-react";
 import { auditCantine } from "@/data/audit-cantine";
 import { auditBtp } from "@/data/audit-btp";
@@ -110,13 +111,13 @@ export default function AuditPage() {
           <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">
             Besoin d'un audit complet sur site par un expert QOSHE ?
           </p>
-          <a
+          <Link
             href="/#contact"
             className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-[#0A0E1A] font-black px-6 py-3 rounded-xl transition-all hover:shadow-lg text-sm"
           >
             Demander un diagnostic gratuit
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 import QosheLogo from "@/components/QosheLogo";
@@ -40,19 +41,19 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#accueil">
+          <Link href="/#accueil" className="inline-block">
             <QosheLogo iconSize={38} />
-          </a>
+          </Link>
 
           <div className="hidden lg:flex items-center gap-5">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                href={`/${link.href}`}
                 className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-amber-400 hover:after:w-full after:transition-all after:duration-200"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -64,12 +65,12 @@ export default function Navbar() {
             >
               {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
-            <a
-              href="/audit"
+            <Link
+              href={auditLink.href}
               className="bg-amber-400 hover:bg-amber-300 text-[#0A0E1A] font-bold text-sm px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-amber-400/25"
             >
-              Audit gratuit
-            </a>
+              {auditLink.label}
+            </Link>
           </div>
 
           <div className="flex lg:hidden items-center gap-2">
@@ -84,6 +85,7 @@ export default function Navbar() {
               className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white p-1"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -93,30 +95,30 @@ export default function Navbar() {
         {isOpen && (
           <div className="lg:hidden bg-white dark:bg-[#0F172A] border-t border-slate-200 dark:border-slate-800 pb-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                href={`/${link.href}`}
                 className="block px-4 py-3 text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-400 text-sm font-medium transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="/audit"
+            <Link
+              href={auditLink.href}
               className="block px-4 py-3 text-amber-500 dark:text-amber-400 font-bold text-sm transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {auditLink.label}
-            </a>
+            </Link>
             <div className="px-4 pt-3">
-              <a
-                href="/audit"
+              <Link
+                href={auditLink.href}
                 className="block text-center bg-amber-400 hover:bg-amber-300 text-[#0A0E1A] font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Faire un audit gratuit
-              </a>
+              </Link>
             </div>
           </div>
         )}

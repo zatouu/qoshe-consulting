@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FileText, Calculator, ListChecks, Download, ArrowRight } from "lucide-react";
 
 const resources = [
@@ -43,13 +44,13 @@ export default function Resources() {
             <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-7">
               Le premier audit gratuit permet d'identifier rapidement les urgences, mais vous pouvez déjà cadrer votre besoin avec nos supports de diagnostic.
             </p>
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="group inline-flex items-center gap-2.5 bg-blue-500 hover:bg-blue-400 text-white font-black px-7 py-4 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-blue-400/20"
             >
               Demander les ressources
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-            </a>
+            </Link>
           </div>
 
           <div className="grid sm:grid-cols-3 lg:grid-cols-1 gap-5">

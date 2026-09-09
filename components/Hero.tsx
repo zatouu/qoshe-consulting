@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight, ChevronDown, CheckCircle } from "lucide-react";
 
 export default function Hero() {
@@ -60,28 +61,28 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-          <a
+          <Link
             href="/audit"
             className="group flex items-center gap-2.5 bg-amber-400 hover:bg-amber-300 text-[#0A0E1A] font-black px-8 py-4 rounded-xl transition-all duration-200 hover:shadow-2xl hover:shadow-amber-400/30 text-base"
           >
             Demander un audit gratuit
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-          </a>
-          <a
-            href="#prestations"
+          </Link>
+          <Link
+            href="/#prestations"
             className="flex items-center gap-2 border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800/40 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 text-base"
           >
             Voir nos prestations
-          </a>
+          </Link>
         </div>
 
-        <a
-          href="#stats"
+        <Link
+          href="/#stats"
           className="inline-flex flex-col items-center gap-2 text-slate-400 dark:text-slate-600 hover:text-slate-600 dark:hover:text-slate-400 transition-colors duration-200"
         >
           <span className="text-xs uppercase tracking-[0.2em] font-medium">Découvrir</span>
           <ChevronDown className="w-5 h-5 animate-bounce" />
-        </a>
+        </Link>
       </div>
     </section>
   );

@@ -33,7 +33,7 @@ const stats = [
   },
   {
     icon: Layers,
-    value: "8",
+    value: "6",
     label: "Modules de service",
     desc: "Solutions à la carte ou contrat global",
     color: "text-purple-400",

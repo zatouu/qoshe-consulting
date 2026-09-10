@@ -19,7 +19,7 @@ const innovations = [
   {
     icon: Video,
     title: "Sensibilisation immersive",
-    badge: "Impact fort",
+    badge: "À venir",
     badgeColor: "text-purple-400 bg-purple-400/10 border-purple-400/20",
     desc: "VR / Vidéos terrain",
     items: [

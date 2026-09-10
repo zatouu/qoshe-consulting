@@ -16,22 +16,26 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--background)] transition-colors duration-300">
-      <Navbar />
-      <Hero />
-      <Stats />
-      <Problems />
-      <About />
-      <Services />
-      <Method />
-      <Innovation />
-      <CaseStudies />
-      <Resources />
-      <Pricing />
-      <FAQ />
-      <CTABanner />
-      <Contact />
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50">
+        <Navbar />
+      </header>
+      <main className="min-h-screen bg-[var(--background)] transition-colors duration-300">
+        <Hero />
+        <Stats />
+        <Problems />
+        <About />
+        <Services />
+        <Method />
+        <Innovation />
+        <CaseStudies />
+        <Resources />
+        <Pricing />
+        <FAQ />
+        <CTABanner />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

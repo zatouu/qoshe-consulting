@@ -35,10 +35,6 @@ export default function AuditForm({ config, onBack }: AuditFormProps) {
     });
   }, [section, answers]);
 
-  const requiredQuestions = visibleQuestions.filter(
-    (q) => q.type !== "checkbox" && q.scoreWeight === undefined && q.id.startsWith("nom_") || q.id === "adresse" || q.id === "telephone" || q.id === "email"
-  );
-
   const isSectionValid = useMemo(() => {
     return visibleQuestions.every((q) => {
       const answer = answers[q.id];
@@ -162,7 +158,7 @@ export default function AuditForm({ config, onBack }: AuditFormProps) {
           <div className="space-y-5 mt-6">
             {visibleQuestions.map((q) => (
               <div key={q.id}>
-                <label className="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">
+                <label id={`audit-label-${q.id}`} htmlFor={q.id} className="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">
                   {q.label}
                   {q.scoreWeight !== undefined && (
                     <span className={`ml-2 ${c.text} text-xs font-normal`}>
@@ -173,6 +169,7 @@ export default function AuditForm({ config, onBack }: AuditFormProps) {
 
                 {q.type === "text" && (
                   <input
+                    id={q.id}
                     type="text"
                     value={(answers[q.id] as string) || ""}
                     onChange={(e) => handleChange(q.id, e.target.value)}
@@ -183,6 +180,7 @@ export default function AuditForm({ config, onBack }: AuditFormProps) {
 
                 {q.type === "number" && (
                   <input
+                    id={q.id}
                     type="number"
                     value={(answers[q.id] as string) || ""}
                     onChange={(e) => handleChange(q.id, e.target.value)}
@@ -193,6 +191,7 @@ export default function AuditForm({ config, onBack }: AuditFormProps) {
 
                 {q.type === "textarea" && (
                   <textarea
+                    id={q.id}
                     value={(answers[q.id] as string) || ""}
                     onChange={(e) => handleChange(q.id, e.target.value)}
                     className={`${inputClass} resize-none`}
@@ -202,10 +201,13 @@ export default function AuditForm({ config, onBack }: AuditFormProps) {
                 )}
 
                 {q.type === "radio" && (
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-3" role="radiogroup" aria-labelledby={`audit-label-${q.id}`}>
                     {q.options?.map((opt) => (
                       <button
                         key={opt}
+                        type="button"
+                        role="radio"
+                        aria-checked={answers[q.id] === opt}
                         onClick={() => handleChange(q.id, opt)}
                         className={`px-5 py-2.5 rounded-xl border text-sm font-semibold transition-all ${
                           answers[q.id] === opt
@@ -220,13 +222,16 @@ export default function AuditForm({ config, onBack }: AuditFormProps) {
                 )}
 
                 {q.type === "checkbox" && (
-                  <div className="grid sm:grid-cols-2 gap-2.5">
+                  <div className="grid sm:grid-cols-2 gap-2.5" role="group" aria-labelledby={`audit-label-${q.id}`}>
                     {q.options?.map((opt) => {
                       const currentSelection = (answers[q.id] as string[]) || [];
                       const isSelected = currentSelection.includes(opt);
                       return (
                         <button
                           key={opt}
+                          type="button"
+                          role="checkbox"
+                          aria-checked={isSelected}
                           onClick={() => {
                             const newSelection = isSelected
                               ? currentSelection.filter((v) => v !== opt)

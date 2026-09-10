@@ -16,6 +16,31 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const serviceLabels: Record<string, string> = {
+      audit: "Audit flash gratuit",
+      sst: "Sécurité & Santé au Travail",
+      qualite: "Management Qualité",
+      environnement: "Environnement",
+      formation: "Formation & Compétences",
+      certification: "Accompagnement Certification",
+      abonnement: "Abonnement mensuel",
+      autre: "Autre",
+    };
+
+    const subject = encodeURIComponent(`Demande de contact QOSHE — ${serviceLabels[form.service] || "Général"}`);
+    const body = encodeURIComponent(
+      `Bonjour QOSHE Consulting,\n\n` +
+        `Nom : ${form.name}\n` +
+        `Entreprise : ${form.company || "Non renseignée"}\n` +
+        `Email : ${form.email}\n` +
+        `Téléphone : ${form.phone || "Non renseigné"}\n` +
+        `Prestation souhaitée : ${serviceLabels[form.service] || "Non précisée"}\n\n` +
+        `Message :\n${form.message}\n\n` +
+        `Cordialement,`
+    );
+
+    window.location.href = `mailto:contact@qosheconsulting.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -142,19 +167,27 @@ export default function Contact() {
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
                   <CheckCircle className="w-16 h-16 text-emerald-400 mb-4" />
-                  <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Message envoyé !</h3>
+                  <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Message prêt à l&apos;envoi !</h3>
                   <p className="text-slate-500 dark:text-slate-400 max-w-xs">
-                    Nous vous recontactons sous 24h ouvrées. Merci de votre confiance.
+                    Votre client de messagerie va s&apos;ouvrir avec votre message pré-rempli. Nous vous recontactons sous 24h ouvrées. Merci de votre confiance.
                   </p>
+                  <a
+                    href="mailto:contact@qosheconsulting.com"
+                    className="mt-5 inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 text-sm font-semibold transition-colors"
+                  >
+                    <Mail className="w-4 h-4" />
+                    Renvoyer le message
+                  </a>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
+                      <label htmlFor="contact-name" className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
                         Nom complet *
                       </label>
                       <input
+                        id="contact-name"
                         name="name"
                         type="text"
                         required
@@ -165,10 +198,11 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
+                      <label htmlFor="contact-company" className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
                         Entreprise
                       </label>
                       <input
+                        id="contact-company"
                         name="company"
                         type="text"
                         value={form.company}
@@ -181,10 +215,11 @@ export default function Contact() {
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
+                      <label htmlFor="contact-email" className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
                         Email *
                       </label>
                       <input
+                        id="contact-email"
                         name="email"
                         type="email"
                         required
@@ -195,10 +230,11 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
+                      <label htmlFor="contact-phone" className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
                         Téléphone
                       </label>
                       <input
+                        id="contact-phone"
                         name="phone"
                         type="tel"
                         value={form.phone}
@@ -210,10 +246,11 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
+                    <label htmlFor="contact-service" className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
                       Prestation souhaitée
                     </label>
                     <select
+                      id="contact-service"
                       name="service"
                       value={form.service}
                       onChange={handleChange}
@@ -250,10 +287,11 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
+                    <label htmlFor="contact-message" className="block text-slate-600 dark:text-slate-400 text-sm font-semibold mb-1.5">
                       Message *
                     </label>
                     <textarea
+                      id="contact-message"
                       name="message"
                       required
                       value={form.message}

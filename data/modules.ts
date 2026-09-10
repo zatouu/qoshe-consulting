@@ -2,6 +2,11 @@ import { Shield, Award, Leaf, GraduationCap, Search, CheckSquare } from "lucide-
 
 type LucideIcon = typeof Shield;
 
+export interface RegulatoryRef {
+  summary: string;
+  references: string[];
+}
+
 export interface QosheModule {
   id: string;
   legacyId: string;
@@ -17,6 +22,7 @@ export interface QosheModule {
   benefits: string[];
   deliverables: string[];
   methodology: string[];
+  regulatory: RegulatoryRef;
 }
 
 export const modules: QosheModule[] = [
@@ -61,6 +67,18 @@ export const modules: QosheModule[] = [
       "Formation et sensibilisation des équipes",
       "Suivi des indicateurs et retour d'expérience",
     ],
+    regulatory: {
+      summary:
+        "Au Sénégal, la prévention des risques professionnels et la sécurité des travailleurs s'appuient sur le Code du travail (Loi n°97-17 du 1er décembre 1997), le Décret n°2006-1256 du 15 novembre 2006 fixant les obligations des employeurs en matière de sécurité au travail, ainsi que les Décrets n°2006-1249 à 1252 du 15 novembre 2006 qui détaillent les obligations en BTP (coordination SPS, équipements de travail, circulation des engins, prescriptions minimales d'ambiance).",
+      references: [
+        "Code du travail du Sénégal — Titre 11 Hygiène et sécurité",
+        "Décret n° 2006-1256 du 15 novembre 2006 — obligations de l'employeur en SST",
+        "Décret n° 2006-1249 du 15 novembre 2006 — coordination SPS sur les chantiers",
+        "Décret n° 2006-1251 du 15 novembre 2006 — équipements de travail",
+        "Décret n° 2006-1252 du 15 novembre 2006 — facteurs physiques d'ambiance",
+        "Norme ISO 45001 — système de management SST",
+      ],
+    },
   },
   {
     id: "qualite",
@@ -101,6 +119,16 @@ export const modules: QosheModule[] = [
       "Rédaction et validation des documents",
       "Accompagnement au déploiement et audits",
     ],
+    regulatory: {
+      summary:
+        "Le management qualité au Sénégal n'est pas imposé par la loi, mais constitue un levier pour l'accès aux marchés publics, les appels d'offres et la compétitivité. Le Code du travail et le Code de l'environnement renvoient à une gestion documentée des activités. La certification ISO 9001 est la référence internationale reconnue pour démontrer la maîtrise des processus et la satisfaction client.",
+      references: [
+        "Norme ISO 9001:2015 — exigences pour un système de management de la qualité",
+        "Code du travail — obligations de transparence et de loyauté envers les travailleurs",
+        "Code des marchés publics du Sénégal — critères qualité et traçabilité",
+        "Guide ARMP — contrôle qualité dans les marchés publics",
+      ],
+    },
   },
   {
     id: "environnement",
@@ -140,6 +168,17 @@ export const modules: QosheModule[] = [
       "Définition des objectifs et programmes",
       "Déploiement, formation et audits",
     ],
+    regulatory: {
+      summary:
+        "Le Sénégal dispose d'un cadre règlementaire environnemental solide, à commencer par l'Ordonnance n°96-005 du 12 janvier 1996 portant Code de l'environnement et la Loi n°2013-10 du 28 février 2013 relative au renforcement des mesures de protection de l'environnement. Les projets soumis à étude d'impact doivent respecter les arrêtés du Ministère de l'Environnement et du Développement durable.",
+      references: [
+        "Ordonnance n° 96-005 du 12 janvier 1996 — Code de l'environnement",
+        "Loi n° 2013-10 du 28 février 2013 — renforcement des mesures de protection de l'environnement",
+        "Décret n° 2001-234 du 10 mai 2001 — procédures d'étude d'impact environnemental",
+        "Norme ISO 14001:2015 — système de management environnemental",
+        "Arrêtés ministériels — classement des établissements et installations classées",
+      ],
+    },
   },
   {
     id: "formation",
@@ -181,6 +220,17 @@ export const modules: QosheModule[] = [
       "Animation en présentiel ou sur site",
       "Évaluation des acquis et suivi",
     ],
+    regulatory: {
+      summary:
+        "La formation professionnelle au Sénégal est encadrée par le Code du travail, notamment les articles relatifs à l'adaptation des travailleurs à leur poste et à la sécurité. Les habilitations électriques, travail en hauteur, conduite d'engins et premiers secours doivent être prouvées par des certificats conformes aux référentiels professionnels et aux arrêtés en vigueur.",
+      references: [
+        "Code du travail — Titre 7 Formation professionnelle",
+        "Décret n° 2006-1256 du 15 novembre 2006 — information et formation des travailleurs",
+        "Référentiels professionnels B0-B2 / BC-BR — habilitations électriques",
+        "CACES et attestations de conduite d'engins",
+        "Arrêtés ministériels — formations obligatoires SST",
+      ],
+    },
   },
   {
     id: "diagnostic-audit",
@@ -220,6 +270,17 @@ export const modules: QosheModule[] = [
       "Analyse des écarts et des risques",
       "Restitution et plan d'action",
     ],
+    regulatory: {
+      summary:
+        "L'audit et le diagnostic QHSE au Sénégal s'appuient sur les exigences du Code du travail, du Code de l'environnement et des normes ISO. Ils permettent d'évaluer la conformité, d'identifier les écarts et de prioriser les actions. La due diligence QHSE est de plus en plus demandée dans les financements, fusions et appels d'offres.",
+      references: [
+        "Code du travail — Titre 11 Hygiène et sécurité",
+        "Ordonnance n° 96-005 — Code de l'environnement",
+        "Décret n° 2006-1256 du 15 novembre 2006 — obligations des employeurs",
+        "Normes ISO 19011 — lignes directrices pour l'audit de management",
+        "Standards sectoriels — audit fournisseurs et sous-traitants",
+      ],
+    },
   },
   {
     id: "certification",
@@ -259,6 +320,17 @@ export const modules: QosheModule[] = [
       "Déploiement et sensibilisation",
       "Audit interne et audit de préparation",
     ],
+    regulatory: {
+      summary:
+        "Au Sénégal, la certification ISO 9001, 14001 et 45001 est reconnue par l'ANOR (Agence nationale d'organisme de règlementation) et les organismes certificateurs agréés. Elle constitue un atout majeur pour les appels d'offres publics et privés. Notre accompagnement intègre les exigences ISO, le Code du travail et les arrêtés sectoriels applicables.",
+      references: [
+        "Normes ISO 9001, 14001 et 45001:2015",
+        "Loi n° 97-17 du 1er décembre 1997 — Code du travail",
+        "Ordonnance n° 96-005 du 12 janvier 1996 — Code de l'environnement",
+        "Décret n° 2006-1256 du 15 novembre 2006 — SST",
+        "Arrêtés ministériels et référentiels sectoriels (BTP, agro, hôtellerie)",
+      ],
+    },
   },
 ];
 

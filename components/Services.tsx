@@ -11,9 +11,9 @@ export default function Services() {
             <span className="text-amber-400 text-sm font-semibold">Nos modules</span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white mb-4">
-            {modules.length} modules{" "}
+            QOSHE CONSULTING PROPOSE{" "}
             <span className="bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent">
-              complémentaires
+              6 PRINCIPAUX MODULES
             </span>
           </h2>
           <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto">

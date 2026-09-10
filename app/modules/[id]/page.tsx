@@ -1,8 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, CheckCircle, FileText, ListChecks, Target } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, FileText, ListChecks, Scale, Target } from "lucide-react";
 import { modules, getModuleById } from "@/data/modules";
+import { getModuleMailto } from "@/lib/contact";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export function generateStaticParams() {
   return modules.map((mod) => ({ id: mod.id }));
@@ -28,15 +31,19 @@ export default function ModulePage({ params }: { params: { id: string } }) {
   const Icon = mod.icon;
 
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-[#0A0E1A] transition-colors duration-300">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <Link
-          href="/#prestations"
-          className="inline-flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm font-medium transition-colors mb-10"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Retour aux prestations
-        </Link>
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0A0E1A] transition-colors duration-300">
+      <header className="fixed top-0 left-0 right-0 z-50">
+        <Navbar />
+      </header>
+      <main className="min-h-screen bg-gray-50 dark:bg-[#0A0E1A] transition-colors duration-300">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 sm:pt-32 sm:pb-16">
+          <Link
+            href="/#prestations"
+            className="inline-flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm font-medium transition-colors mb-10"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Retour aux prestations
+          </Link>
 
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-start gap-6 mb-10">
@@ -148,13 +155,35 @@ export default function ModulePage({ params }: { params: { id: string } }) {
           </div>
         </div>
 
+        {/* Regulatory */}
+        <div className="surface-card rounded-2xl border border-slate-200 dark:border-slate-800/60 p-6 sm:p-8 mb-10">
+          <h2 className="text-xl font-black text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+            <Scale className={`w-5 h-5 ${mod.color}`} />
+            Exigences règlementaires et référents obligatoires au Sénégal
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
+            {mod.regulatory.summary}
+          </p>
+          <ul className="grid sm:grid-cols-2 gap-3">
+            {mod.regulatory.references.map((ref) => (
+              <li
+                key={ref}
+                className="flex items-start gap-3 text-slate-700 dark:text-slate-300 text-sm leading-relaxed"
+              >
+                <span className={`mt-1.5 w-1.5 h-1.5 rounded-full ${mod.color} bg-current shrink-0`} />
+                {ref}
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* CTA */}
         <div className="surface-card rounded-2xl border border-amber-400/20 p-8 sm:p-10 text-center">
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-3">
             Besoin d&apos;un accompagnement sur ce module ?
           </h2>
           <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto mb-6">
-            Faites un audit gratuit en ligne ou contactez nos experts pour échanger sur vos besoins.
+            Faites un audit gratuit en ligne ou envoyez directement une demande à nos experts avec dave et dada en copie.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
@@ -164,15 +193,19 @@ export default function ModulePage({ params }: { params: { id: string } }) {
               Faire un audit gratuit
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              href="/#contact"
+            <a
+              href={getModuleMailto(mod.title, mod.subtitle, mod.description)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white font-semibold px-8 py-4 rounded-xl transition-all"
             >
               Demander un devis
-            </Link>
+            </a>
           </div>
         </div>
       </div>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }
